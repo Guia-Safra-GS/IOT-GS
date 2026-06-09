@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "author": "Matheus Roque",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-esp32-devkit-v1",
+      "id": "esp1",
+      "top": 43.1,
+      "left": -14.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": 38.7,
+      "left": 167.4,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled1",
+      "top": 262.34,
+      "left": 125.03,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": 294.2,
+      "left": 19.2,
+      "attrs": { "color": "green", "xray": "1" }
+    },
+    {
+      "type": "wokwi-rgb-led",
+      "id": "rgb1",
+      "top": 239.8,
+      "left": -52.7,
+      "rotate": 180,
+      "attrs": { "common": "cathode" }
+    },
+    {
+      "type": "wokwi-potentiometer",
+      "id": "pot1",
+      "top": 353.9,
+      "left": 57.4,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    ["oled1:GND", "esp1:GND.1", "black", ["v0"]],
+    ["dht1:GND", "esp1:GND.1", "black", ["v38.4", "h-28.8"]],
+    ["dht1:VCC", "esp1:3V3", "red", ["v0"]],
+    ["oled1:VCC", "esp1:3V3", "red", ["v-67.2", "h0.15"]],
+    ["oled1:SCL", "esp1:D22", "white", ["v-57.6", "h-28.5", "v-134.4"]],
+    ["oled1:SDA", "esp1:D21", "cyan", ["v-57.6", "h-47.93", "v-105.6"]],
+    ["dht1:SDA", "esp1:D4", "yellow", ["v0"]],
+    ["rgb1:R", "esp1:D25", "red", ["v0"]],
+    ["rgb1:G", "esp1:D26", "green", ["v0"]],
+    ["rgb1:B", "esp1:D27", "blue", ["v0"]],
+    ["rgb1:COM", "esp1:GND.2", "black", ["v0"]],
+    ["esp1:GND.2", "btn1:2.l", "black", ["h-48", "v9.5"]],
+    ["esp1:D15", "btn1:1.r", "magenta", ["h18.9", "v115"]],
+    [
+      "pot1:GND",
+      "esp1:GND.2",
+      "black",
+      ["v9.6", "h-38.4", "v-76.8", "h-105.6", "v-163.1"]
+    ],
+    [
+      "pot1:VCC",
+      "esp1:3V3",
+      "red",
+      ["v19.2", "h-68", "v-96", "h76.8", "v-110.4"]
+    ],
+    [
+      "pot1:SIG",
+      "esp1:D34",
+      "green",
+      ["v28.8", "h-163.6", "v-278.4", "h0", "v-76.8"]
+    ]
+  ],
+  "dependencies": {}
+}
